@@ -26,5 +26,5 @@ Table Food_Footprint {
   FootprintID integer [primary key]
   FootprintText nvarchar(15)
 }
-Ref: Food_Menu.FootprintID - Food_Footprint.FootprintID
+Ref: Food_Menu.FootprintID > Food_Footprint.FootprintID
 
