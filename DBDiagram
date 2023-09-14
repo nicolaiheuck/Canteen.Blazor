@@ -1,0 +1,30 @@
+Table Food_Menu {
+  Id integer [primary key]
+  DishName nvarchar(75)
+  Kcal integer
+  Kj integer
+  FootprintID integer
+  Vegetarian bit
+  Vegan bit
+  Allergy_Gluten bit
+  Allergy_Crustacean bit
+  Allergy_Mollusca bit
+  Allergy_Egg bit
+  Allergy_Fish bit
+  Allergy_Peanut bit
+  Allergy_Soy bit
+  Allergy_Milk bit
+  Allergy_Nuts bit
+  Allergy_Lupin bit
+  Allergy_Celery bit
+  Allergy_Mustard bit
+  Allergy_Sesame bit
+  Allergy_Sulphite bit
+}
+
+Table Food_Footprint {
+  FootprintID integer [primary key]
+  FootprintText nvarchar(15)
+}
+Ref: Food_Menu.FootprintID - Food_Footprint.FootprintID
+
