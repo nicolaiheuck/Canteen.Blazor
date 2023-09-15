@@ -1,6 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canteen.Blazor", "Canteen.Blazor\Canteen.Blazor.csproj", "{C01C2A8D-7571-4E6F-8D9A-52AB0A9B5F3D}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canteen.Blazor", "Canteen.Blazor\Canteen.Blazor.csproj", "{C01C2A8D-7571-4E6F-8D9A-52AB0A9B5F3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canteen.Services", "Canteen.Services\Canteen.Services.csproj", "{E3BF5D28-3F14-49E6-B9E6-0A8C84319B31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canteen.Repositories", "Canteen.Repositories\Canteen.Repositories.csproj", "{F364233F-A5CC-4151-8B7D-06F1506F521C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +19,16 @@ Global
 		{C01C2A8D-7571-4E6F-8D9A-52AB0A9B5F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C01C2A8D-7571-4E6F-8D9A-52AB0A9B5F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C01C2A8D-7571-4E6F-8D9A-52AB0A9B5F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3BF5D28-3F14-49E6-B9E6-0A8C84319B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3BF5D28-3F14-49E6-B9E6-0A8C84319B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3BF5D28-3F14-49E6-B9E6-0A8C84319B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3BF5D28-3F14-49E6-B9E6-0A8C84319B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F364233F-A5CC-4151-8B7D-06F1506F521C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F364233F-A5CC-4151-8B7D-06F1506F521C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F364233F-A5CC-4151-8B7D-06F1506F521C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F364233F-A5CC-4151-8B7D-06F1506F521C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
