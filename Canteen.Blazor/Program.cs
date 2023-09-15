@@ -1,13 +1,38 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using Canteen.Blazor.Data;
+using Microsoft.AspNetCore.Localization;
+using Blazored.Modal;
+using Blazored.Toast;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Radzen;
+using Toolbelt.Blazor.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+
+// configure cultures
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[] { "en", "dk" };
+    options.DefaultRequestCulture = new RequestCulture("en");
+    options.AddSupportedCultures(supportedCultures);
+    options.AddSupportedUICultures(supportedCultures);
+});
+
+// MCC UI services
+builder.Services.AddI18nText();
+builder.Services.AddBlazoredModal();
+builder.Services.AddBlazoredToast();
+builder.Services.AddHotKeys2();
+builder.Services.AddScoped<DialogService>();
+builder.Services.AddScoped<NotificationService>();
+builder.Services.AddScoped<TooltipService>();
+builder.Services.AddScoped<ContextMenuService>();
+
+
 
 var app = builder.Build();
 
@@ -20,6 +45,9 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//app.UseAuthentication();
+//app.UseAuthorization();
 
 app.UseStaticFiles();
 

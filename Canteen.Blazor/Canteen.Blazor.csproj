@@ -6,4 +6,61 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Blazored.Modal" Version="7.1.0" />
+      <PackageReference Include="Blazored.Toast" Version="4.1.0" />
+      <PackageReference Include="Radzen.Blazor" Version="4.15.14" />
+      <PackageReference Include="Toolbelt.Blazor.HotKeys2" Version="3.0.0" />
+      <PackageReference Include="Toolbelt.Blazor.I18nText" Version="12.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="Shared\MainLayout.razor">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </Content>
+      <Content Update="Shared\NavMenu.razor">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </Content>
+      <Content Update="Shared\PageHeader.razor">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Shared\Modal\DeleteConfirmation.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Shared\LanguageSwitcher.razor" />
+      <_ContentIncludedByDefault Remove="Shared\LoginDisplay.razor" />
+      <_ContentIncludedByDefault Remove="Shared\Modal\DeleteConfirmation.razor" />
+      <_ContentIncludedByDefault Remove="Shared\Modal\ErrorMessage.razor" />
+      <_ContentIncludedByDefault Remove="Shared\Modal\InfoMessage.razor" />
+      <_ContentIncludedByDefault Remove="Shared\Modal\WarningMessage.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Shared\Modal\ErrorMessage.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Shared\Modal\InfoMessage.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Shared\Modal\WarningMessage.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Shared\LanguageSwitcher.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Shared\LoginDisplay.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\js\PageHeader.js" />
+    </ItemGroup>
+
 </Project>
