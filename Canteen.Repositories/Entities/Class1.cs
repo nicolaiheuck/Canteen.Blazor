@@ -1,4 +1,4 @@
-﻿namespace Energy.Repository
+﻿namespace Canteen.Repositories.Entities
 {
     public class Class1
     {
