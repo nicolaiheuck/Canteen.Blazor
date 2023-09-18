@@ -22,7 +22,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.AddSupportedUICultures(supportedCultures);
 });
 
-// MCC UI services
+// UI services
 builder.Services.AddI18nText();
 builder.Services.AddBlazoredModal();
 builder.Services.AddBlazoredToast();
