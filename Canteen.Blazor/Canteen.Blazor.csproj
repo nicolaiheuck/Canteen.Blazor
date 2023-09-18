@@ -63,4 +63,9 @@
       <None Include="wwwroot\js\PageHeader.js" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Canteen.Repositories\Canteen.Repositories.csproj" />
+      <ProjectReference Include="..\Canteen.Services\Canteen.Services.csproj" />
+    </ItemGroup>
+
 </Project>
