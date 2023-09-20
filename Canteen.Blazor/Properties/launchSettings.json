@@ -14,7 +14,9 @@
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5256",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "VaultUri": "https://kantine-info.vault.azure.net/",
+        "AZURE_USERNAME": "peter.hymoeller@hotmail.dk"
       }
     },
     "https": {
@@ -23,14 +25,18 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7115;http://localhost:5256",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "VaultUri": "https://kantine-info.vault.azure.net/",
+        "AZURE_USERNAME": "peter.hymoeller@hotmail.dk"
       }
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "VaultUri": "https://kantine-info.vault.azure.net/",
+        "AZURE_USERNAME": "peter.hymoeller@hotmail.dk"
       }
     }
   }
