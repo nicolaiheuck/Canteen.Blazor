@@ -35,6 +35,10 @@ builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredent
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.RegisterDependencies();
+builder.Services.AddLogging(loggingBuilder =>
+{
+	loggingBuilder.AddSeq(builder.Configuration.GetSection("Seq"));
+});
 
 // configure cultures
 builder.Services.Configure<RequestLocalizationOptions>(options =>
