@@ -1,0 +1,217 @@
+﻿<RadzenTemplateForm Style="background-color: white" Data="@menu" Submit="@((Menu args) => { Submit(args); })">
+	<RadzenRow Gap="2rem" Class="rz-p-0 rz-p-lg-4">
+		<RadzenColumn Size="12" SizeMD="6">
+			<RadzenStack>
+				<RadzenFieldset Text="Dagens Menu">
+					<RadzenStack Gap="1rem">
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Retten" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenTextBox Style="width: 100%;" Name="CardNr" />
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Beskrivelse" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenTextArea Placeholder="Enter beskrivelse..." class="w-100" />
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Allagier" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								@* make Populate CheckBoxList items from data *@
+								<RadzenCheckBoxList @bind-Value=@values TValue="int" Orientation=Orientation.Vertical class="mb-5">
+									<Items>
+										<RadzenCheckBoxListItem Text="allagie 1" Value="1" />
+										<RadzenCheckBoxListItem Text="allagie 2" Value="2" />
+										<RadzenCheckBoxListItem Text="allagie 3" Value="3" />
+									</Items>
+								</RadzenCheckBoxList>
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="type" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenRadioButtonList @bind-Value="@radio" TValue="int" class="mb-5">
+									<Items>
+										<RadzenRadioButtonListItem Text="Meat Based" Value="1" />
+										<RadzenRadioButtonListItem Text="Vegan" Value="2" />
+										<RadzenRadioButtonListItem Text="fisk" Value="3" />
+										<RadzenRadioButtonListItem Text="salat" Value="4" />
+									</Items>
+								</RadzenRadioButtonList>
+							</RadzenColumn>
+						</RadzenRow>
+					</RadzenStack>
+				</RadzenFieldset>
+				<RadzenFieldset Text="Dagens Menu">
+					<RadzenStack Gap="1rem">
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Retten" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenTextBox Style="width: 100%;" Name="CardNr" />
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Beskrivelse" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenTextArea Placeholder="Enter beskrivelse..." class="w-100" />
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Allagier" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								@* make Populate CheckBoxList items from data *@
+								<RadzenCheckBoxList @bind-Value=@values TValue="int" Orientation=Orientation.Vertical class="mb-5">
+									<Items>
+										<RadzenCheckBoxListItem Text="allagie 1" Value="1" />
+										<RadzenCheckBoxListItem Text="allagie 2" Value="2" />
+										<RadzenCheckBoxListItem Text="allagie 3" Value="3" />
+									</Items>
+								</RadzenCheckBoxList>
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="type" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenRadioButtonList @bind-Value="@radio" TValue="int" class="mb-5">
+									<Items>
+										<RadzenRadioButtonListItem Text="MeatBased" Value="1" />
+										<RadzenRadioButtonListItem Text="Vegan" Value="2" />
+										<RadzenRadioButtonListItem Text="fisk" Value="3" />
+										<RadzenRadioButtonListItem Text="salat" Value="4" />
+									</Items>
+								</RadzenRadioButtonList>
+							</RadzenColumn>
+						</RadzenRow>
+					</RadzenStack>
+				</RadzenFieldset>
+			</RadzenStack>
+		</RadzenColumn>
+		<RadzenColumn Size="12" SizeMD="6">
+			<RadzenStack>
+				<RadzenFieldset Text="Dagens Menu">
+					<RadzenStack Gap="1rem">
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Retten" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenTextBox Style="width: 100%;" Name="CardNr" />
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Beskrivelse" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenTextArea Placeholder="Enter beskrivelse..." class="w-100" />
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Allagier" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								@* make Populate CheckBoxList items from data *@
+								<RadzenCheckBoxList @bind-Value=@values TValue="int" Orientation=Orientation.Vertical class="mb-5">
+									<Items>
+										<RadzenCheckBoxListItem Text="allagie 1" Value="1" />
+										<RadzenCheckBoxListItem Text="allagie 2" Value="2" />
+										<RadzenCheckBoxListItem Text="allagie 3" Value="3" />
+									</Items>
+								</RadzenCheckBoxList>
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="type" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenRadioButtonList @bind-Value="@radio" TValue="int" class="mb-5">
+									<Items>
+										<RadzenRadioButtonListItem Text="MeatBased" Value="1" />
+										<RadzenRadioButtonListItem Text="Vegan" Value="2" />
+										<RadzenRadioButtonListItem Text="fisk" Value="3" />
+										<RadzenRadioButtonListItem Text="salat" Value="4" />
+									</Items>
+								</RadzenRadioButtonList>
+							</RadzenColumn>
+						</RadzenRow>
+					</RadzenStack>
+				</RadzenFieldset>
+				<RadzenFieldset Text="Dagens Menu">
+					<RadzenStack Gap="1rem">
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Retten" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenTextBox Style="width: 100%;" Name="CardNr" />
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Beskrivelse" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenTextArea Placeholder="Enter beskrivelse..." class="w-100" />
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="Allagier" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								@* make Populate CheckBoxList items from data *@
+								<RadzenCheckBoxList @bind-Value=@values TValue="int" Orientation=Orientation.Vertical class="mb-5">
+									<Items>
+										<RadzenCheckBoxListItem Text="allagie 1" Value="1" />
+										<RadzenCheckBoxListItem Text="allagie 2" Value="2" />
+										<RadzenCheckBoxListItem Text="allagie 3" Value="3" />
+									</Items>
+								</RadzenCheckBoxList>
+							</RadzenColumn>
+						</RadzenRow>
+						<RadzenRow AlignItems="AlignItems.Center">
+							<RadzenColumn Size="12" SizeMD="4">
+								<RadzenLabel Text="type" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeMD="8">
+								<RadzenRadioButtonList @bind-Value="@radio" TValue="int" class="mb-5">
+									<Items>
+										<RadzenRadioButtonListItem Text="MeatBased" Value="1" />
+										<RadzenRadioButtonListItem Text="Vegan" Value="2" />
+										<RadzenRadioButtonListItem Text="fisk" Value="3" />
+										<RadzenRadioButtonListItem Text="salat" Value="4" />
+									</Items>
+								</RadzenRadioButtonList>
+							</RadzenColumn>
+						</RadzenRow>
+					</RadzenStack>
+				</RadzenFieldset>
+			</RadzenStack>
+		</RadzenColumn>
+	</RadzenRow>
+	<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Center" Gap="1rem" Class="rz-mt-8 rz-mb-4">
+		<RadzenButton ButtonType="ButtonType.Submit" Size="ButtonSize.Large" Icon="save" Text="Save" />
+		<RadzenButton ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Large" Icon="cancel" Text="Cancel" Click="@Cancel" />
+	</RadzenStack>
+</RadzenTemplateForm>
+
