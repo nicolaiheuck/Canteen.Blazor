@@ -16,11 +16,11 @@ public class DoomService : IDoomService
 
     private async Task<List<FoodMenuItemDTO>> GetWeekMenuAsync(bool nextWeek = false)
     {
-        var foodList = nextWeek switch
-        {
-            true => await _repository.GetThisWeekMenuAsync(),
-            false => await _repository.GetNextWeeksMenuAsync()
-        };
+        List<Food_Menu> foodList = new();
+        
+        
+        if (!nextWeek) foodList = await _repository.GetThisWeekMenuAsync();
+        if (nextWeek) foodList = await _repository.GetNextWeeksMenuAsync();
         
         List<FoodMenuItemDTO> result = new();
         
