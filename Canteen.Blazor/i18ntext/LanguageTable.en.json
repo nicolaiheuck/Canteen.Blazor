@@ -20,6 +20,20 @@
 	"DeleteConfirmation": "Are you sure you want to delete",
 
 	//Index
-	"HelloWorld": "Hello!"
+	"HelloWorld": "Hello!",
 
+
+	//Canteen
+	"CanteenWelcome": "Welcome to the EUC-Syd cafeteria",
+	"Monday": "Monday",
+	"Tuesday": "Tuesday",
+	"Wednesday": "Wednesday",
+	"Thursday": "Thursday",
+	"Friday": "Friday",
+	"Lav": "Low",
+	"Mellem": "Medium",
+	"Høj": "High",
+	"Co2": "Carbon footprint",
+	"Dish": "Dish",
+	"Weekday": "Weekday"
 }

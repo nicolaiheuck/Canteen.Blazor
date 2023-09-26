@@ -9,9 +9,7 @@ namespace Canteen.Blazor.Pages
     public partial class Index : IDisposable
     {
         [Inject] public IToastService? ToastService { get; set; }
-
         [Inject] public HotKeys? HotKeys { get; set; }
-
         [Inject] public Toolbelt.Blazor.I18nText.I18nText? I18nText { get; set; }
         [Inject] public IDoomService DoomService { get; set; }
 
@@ -31,7 +29,7 @@ namespace Canteen.Blazor.Pages
 			_languageTable = await I18nText.GetTextTableAsync<I18nText.LanguageTable>(this);
             _hotKeysContext = HotKeys.CreateContext()
                 .Add(Code.F8, Toaster);
-            FoodMenuItems = await _service.ListThisWeeksMenuAsync();
+            // FoodMenuItems = await _service.ListThisWeeksMenuAsync();
         }
 		void Toaster()
 		{
