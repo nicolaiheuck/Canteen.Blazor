@@ -13,8 +13,7 @@ public partial class CanteenInfoScreen
     public List<FoodMenuItemDTO> thisWeekMenuList { get; set; } = new();
     public List<FoodMenuItemDTO> nextWeekMenuList { get; set; }
 
-
-    protected override async Task OnInitializedAsync()
+	protected override async Task OnInitializedAsync()
     {
         _languageTable = await I18nText.GetTextTableAsync<I18nText.LanguageTable>(this);;
         _service = Service;
