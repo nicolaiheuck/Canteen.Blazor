@@ -1,81 +1,87 @@
 @page "/CanteenInfo"
 @using Canteen.Services.Enumerations
 
-<h1>@_languageTable["CanteenWelcome"]</h1>
+<PageTitle>@_languageTable["CanteenWelcome"]</PageTitle>
 <div class="container">
 	<div class="row">
 		@for (var i = 1; i <= 3; i++)
 		{
+			<RadzenProgressBar ProgressBarStyle="ProgressBarStyle.Info" Value="100" ShowValue="false"/>
+			<h3>@_languageTable[((WeekDayEnum)i).ToString()]</h3>
 			@foreach (var menuItem in thisWeekMenuList.Where(menuItem => menuItem.Weekday == i))
 			{
-				<RadzenCard Class="rz-my-12 rz-mx-auto" Style="max-width: 320px">
-					<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-p-4">
-						@* <RadzenImage Path="@order?.Employee?.Photo" Style="width: 100px; height: 100px; border-radius: 50%;" /> *@
-						<RadzenStack Gap="0">
-							<RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">@_languageTable["Dish"]:</RadzenText>
-							<RadzenText TextStyle="TextStyle.Body1"><b>@menuItem.DishName</b></RadzenText>
+				<div class="col-3">
+					<RadzenCard Class="rz-my-12 rz-mx-auto">
+						<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-p-4">
+							@* <RadzenImage Path="@order?.Employee?.Photo" Style="width: 100px; height: 100px; border-radius: 50%;" /> *@
+							<RadzenStack Gap="0">
+								<RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">@_languageTable["Dish"]:</RadzenText>
+								<RadzenText TextStyle="TextStyle.Body1"><b>@menuItem.DishName</b></RadzenText>
+							</RadzenStack>
 						</RadzenStack>
-					</RadzenStack>
-					<RadzenCard class="rz-background-color-primary-light rz-shadow-0 rz-border-radius-0 rz-p-8" style="margin: 1rem calc(-1 * var(--rz-card-padding));">
-						<RadzenText TextStyle="TextStyle.H6" class="rz-color-on-primary-light"><strong>Information</strong></RadzenText>
-						<RadzenRow RowGap="0">
-							<RadzenColumn SizeSM="4">
-								<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">@_languageTable["Co2"]</RadzenText>
-								<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@_languageTable[menuItem.Footprint]</b></RadzenText>
-								<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">KCAL/Kj:</RadzenText>
-								<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@menuItem.Kcal/@menuItem.Kj</b></RadzenText>
-							</RadzenColumn>
-							<RadzenColumn SizeSM="8">
-								@if (menuItem.FoodAllergiesList.Count(f => f.Present) > 0)
-								{
-									<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Allagiere</RadzenText>
-									@foreach (var allergy in menuItem.FoodAllergiesList.Where(allergy => allergy.Present))
+						<RadzenCard class="rz-background-color-primary-light rz-shadow-0 rz-border-radius-0 rz-p-8" style="margin: 1rem calc(-1 * var(--rz-card-padding));">
+							<RadzenText TextStyle="TextStyle.H6" class="rz-color-on-primary-light"><strong>Information</strong></RadzenText>
+							<RadzenRow RowGap="0">
+								<RadzenColumn SizeSM="4">
+									<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">@_languageTable["Co2"]</RadzenText>
+									<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@_languageTable[menuItem.Footprint]</b></RadzenText>
+									<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">KCAL/Kj:</RadzenText>
+									<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@menuItem.Kcal/@menuItem.Kj</b></RadzenText>
+								</RadzenColumn>
+								<RadzenColumn SizeSM="8">
+									@if (menuItem.FoodAllergiesList.Count(f => f.Present) > 0)
 									{
-										<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@allergy.Allergy</b></RadzenText>
+										<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Allagiere</RadzenText>
+										@foreach (var allergy in menuItem.FoodAllergiesList.Where(allergy => allergy.Present))
+										{
+											<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@allergy.Allergy</b></RadzenText>
+										}
 									}
-								}
-							</RadzenColumn>
-						</RadzenRow>
+								</RadzenColumn>
+							</RadzenRow>
+						</RadzenCard>
 					</RadzenCard>
-
-				</RadzenCard>
+				</div>
 			}
 		}
 		@for (var i = 4; i <= 5; i++)
 		{
+			<RadzenProgressBar ProgressBarStyle="ProgressBarStyle.Info" Value="100" ShowValue="false" />
+			<h3>@_languageTable[((WeekDayEnum)i).ToString()]</h3>
 			@foreach (var menuItem in thisWeekMenuList.Where(menuItem => menuItem.Weekday == i))
 			{
-				<RadzenCard Class="rz-my-12 rz-mx-auto" Style="max-width: 320px">
-					<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-p-4">
-						@* <RadzenImage Path="@order?.Employee?.Photo" Style="width: 100px; height: 100px; border-radius: 50%;" /> *@
-						<RadzenStack Gap="0">
-							<RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">@_languageTable["Dish"]:</RadzenText>
-							<RadzenText TextStyle="TextStyle.Body1"><b>@menuItem.DishName</b></RadzenText>
+				<div class="col-3">
+					<RadzenCard Class="rz-my-12 rz-mx-auto">
+						<RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Start" Gap="1rem" Class="rz-p-4">
+							@* <RadzenImage Path="@order?.Employee?.Photo" Style="width: 100px; height: 100px; border-radius: 50%;" /> *@
+							<RadzenStack Gap="0">
+								<RadzenText TextStyle="TextStyle.Overline" class="rz-display-flex rz-mt-2 rz-my-0">@_languageTable["Dish"]:</RadzenText>
+								<RadzenText TextStyle="TextStyle.Body1"><b>@menuItem.DishName</b></RadzenText>
+							</RadzenStack>
 						</RadzenStack>
-					</RadzenStack>
-					<RadzenCard class="rz-background-color-primary-light rz-shadow-0 rz-border-radius-0 rz-p-8" style="margin: 1rem calc(-1 * var(--rz-card-padding));">
-						<RadzenText TextStyle="TextStyle.H6" class="rz-color-on-primary-light"><strong>Information</strong></RadzenText>
-						<RadzenRow RowGap="0">
-							<RadzenColumn SizeSM="4">
-								<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">@_languageTable["Co2"]</RadzenText>
-								<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@_languageTable[menuItem.Footprint]</b></RadzenText>
-								<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">KCAL/Kj:</RadzenText>
-								<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@menuItem.Kcal/@menuItem.Kj</b></RadzenText>
-							</RadzenColumn>
-							<RadzenColumn SizeSM="8">
-								@if (menuItem.FoodAllergiesList.Count(f => f.Present) > 0)
-								{
-									<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Allagiere</RadzenText>
-									@foreach (var allergy in menuItem.FoodAllergiesList.Where(allergy => allergy.Present))
+						<RadzenCard class="rz-background-color-primary-light rz-shadow-0 rz-border-radius-0 rz-p-8" style="margin: 1rem calc(-1 * var(--rz-card-padding));">
+							<RadzenText TextStyle="TextStyle.H6" class="rz-color-on-primary-light"><strong>Information</strong></RadzenText>
+							<RadzenRow RowGap="0">
+								<RadzenColumn SizeSM="4">
+									<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">@_languageTable["Co2"]</RadzenText>
+									<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@_languageTable[menuItem.Footprint]</b></RadzenText>
+									<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">KCAL/Kj:</RadzenText>
+									<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@menuItem.Kcal/@menuItem.Kj</b></RadzenText>
+								</RadzenColumn>
+								<RadzenColumn SizeSM="8">
+									@if (menuItem.FoodAllergiesList.Count(f => f.Present) > 0)
 									{
-										<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@allergy.Allergy</b></RadzenText>
+										<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Allagiere</RadzenText>
+										@foreach (var allergy in menuItem.FoodAllergiesList.Where(allergy => allergy.Present))
+										{
+											<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@allergy.Allergy</b></RadzenText>
+										}
 									}
-								}
-							</RadzenColumn>
-						</RadzenRow>
+								</RadzenColumn>
+							</RadzenRow>
+						</RadzenCard>
 					</RadzenCard>
-
-				</RadzenCard>
+				</div>
 			}
 		}
 	</div>
