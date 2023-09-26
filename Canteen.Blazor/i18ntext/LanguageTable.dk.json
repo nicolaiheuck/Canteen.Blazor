@@ -20,6 +20,19 @@
 	"DeleteConfirmation": "Er du sikker på du vil slette",
 
 	//Index
-	"HelloWorld": "Hej!"
-
+	"HelloWorld": "Hej!",
+	
+	//Canteen
+	"CanteenWelcome": "Velkommen til EUC-Syds kantine",
+	"Monday": "Mandag",
+	"Tuesday": "Tirsdag",
+	"Wednesday": "Onsdag",
+	"Thursday": "Torsdag",
+	"Friday": "Fredag",
+	"Lav": "Lav",
+	"Mellem": "Mellem",
+	"Høj": "Høj",
+	"Co2": "Co2 aftryk",
+	"Dish": "Ret",
+	"Weekday": "Ugedag"
 }

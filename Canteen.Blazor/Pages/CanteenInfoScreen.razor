@@ -1,0 +1,96 @@
+@page "/CanteenInfo"
+@using Canteen.Services.Enumerations
+
+<h1>@_languageTable["CanteenWelcome"]</h1>
+<div class="container">
+    <div class="row">
+        @for (var i = 1; i <= 3; i++)
+        {
+            <div class="col-4 border border-warning border-1 p-2">
+                <div class="row">
+                    <h3>@_languageTable[((WeekDayEnum)i).ToString()]</h3>
+                </div>
+                @foreach (var menuItem in thisWeekMenuList.Where(menuItem => menuItem.Weekday == i))
+                {
+                    <div class="row border border-info border-1">
+                        <div class="row">
+                            <h5>
+                                <strong>@_languageTable["Dish"]:</strong> @menuItem.DishName
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>
+                                    <strong>@_languageTable["Co2"]:</strong> @_languageTable[menuItem.Footprint]
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <p><strong>KCAL/Kj:</strong> @menuItem.Kcal/@menuItem.Kj</p>
+                            </div>
+                        </div>
+                        @if (menuItem.FoodAllergiesList.Count(f => f.Present) > 0)
+                        {
+                            <div class="row">
+                                @foreach (var allergy in menuItem.FoodAllergiesList.Where(allergy => allergy.Present))
+                                {
+                                    <strong>@allergy.Allergy&nbsp;</strong>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row">&nbsp;</div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    <div class="row">
+        @for (var i = 4; i <= 5; i++)
+        {
+            <div class="col-6">
+                <div class="row border border-warning border-1">
+                    <div class="row">
+                        <div class="row">
+                            <h3>@_languageTable[((WeekDayEnum)i).ToString()]</h3>
+                        </div>
+                        @foreach (var menuItem in thisWeekMenuList.Where(menuItem => menuItem.Weekday == i))
+                        {
+                            <div class="row border border-info border-1">
+                                <div class="row">
+                                    <h5>
+                                        <strong>@_languageTable["Dish"]:</strong> @menuItem.DishName
+                                    </h5>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>
+                                            <strong>@_languageTable["Co2"]:</strong> @_languageTable[menuItem.Footprint]
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p><strong>KCAL/Kj:</strong> @menuItem.Kcal/@menuItem.Kj</p>
+                                    </div>
+                                </div>
+                                @if (menuItem.FoodAllergiesList.Count(f => f.Present) > 0)
+                                {
+                                    <div class="row">
+                                        @foreach (var allergy in menuItem.FoodAllergiesList.Where(allergy => allergy.Present))
+                                        {
+                                            <strong>@allergy.Allergy&nbsp;</strong>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="row">&nbsp;</div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

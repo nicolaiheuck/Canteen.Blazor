@@ -3,24 +3,6 @@
 
 
 <PageTitle>Home</PageTitle>
-<div>
-    <table class="table table-light">
-        <tr>
-            <th>Name</th>
-            <th>Footprint</th>
-            <th>Weekday</th>
-        </tr>
-            @foreach (var food in FoodMenuItems)
-                {
-                    <tr>
-                        <td><p>@food.DishName</p></td>
-                        <td><p>@food.Footprint</p></td>
-                        <td><p>@food.Weekday</p></td>
-                    </tr>
-                }
-    </table>
-    
-</div>
 <div class="row mt-10 mb-10 container-fluid">
     <RadzenTabs Style="background-color: white" TabPosition="TabPosition.Top" class="col-12 mb-10 rz-shadow-6">
         <Tabs>
@@ -29,9 +11,11 @@
             {
                 _intDay = "day ";
                 _intDay += i + 1;
-                <RadzenTabsItem Text="@_intDay">
-                    <MenuTemplate></MenuTemplate>
-                </RadzenTabsItem>
+                <CascadingValue Value="@FoodMenuItems">
+                    <RadzenTabsItem Text="@_intDay">
+                        <MenuTemplate></MenuTemplate>
+                    </RadzenTabsItem>
+                </CascadingValue>
             }
         </Tabs>
     </RadzenTabs>
