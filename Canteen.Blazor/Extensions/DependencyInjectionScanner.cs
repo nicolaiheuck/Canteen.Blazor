@@ -9,7 +9,11 @@ public static class DependencyInjectionScanner
 {
     public static void RegisterDependencies(this WebApplicationBuilder builder)
     {
-        builder.Services.AddByNamespaces(ServiceLifetime.Scoped, "Canteen.Services.Interfaces", "Canteen.Services.Services", "Canteen.Repositories.Interfaces", "Canteen.Repositories.Repositories");
+        builder.Services.AddByNamespaces(ServiceLifetime.Scoped, 
+            "Canteen.Services.Interfaces", 
+            "Canteen.Services.Services", 
+            "Canteen.Repositories.Interfaces", 
+            "Canteen.Repositories.Repositories");
     }
 
     /// <summary>

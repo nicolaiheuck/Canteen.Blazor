@@ -5,6 +5,7 @@ using Canteen.Blazor.Extensions;
 using Radzen;
 using Toolbelt.Blazor.Extensions.DependencyInjection;
 using Azure.Identity;
+using Canteen.Repositories.Context;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
@@ -54,7 +55,7 @@ builder.Services.AddScoped<DialogService>();
 builder.Services.AddScoped<NotificationService>();
 builder.Services.AddScoped<TooltipService>();
 builder.Services.AddScoped<ContextMenuService>();
-
+builder.Services.AddDbContext<DBContext>();
 
 
 var app = builder.Build();
@@ -66,6 +67,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 
