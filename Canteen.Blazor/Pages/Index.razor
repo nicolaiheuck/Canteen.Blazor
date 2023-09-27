@@ -1,22 +1,37 @@
 ﻿@page "/"
+@using Canteen.Services.Enumerations;
 @attribute [Authorize(Roles = "Admin")]
 
 
 <PageTitle>Home</PageTitle>
 <div class="row mt-10 mb-10 container-fluid">
-    <RadzenTabs Style="background-color: white" TabPosition="TabPosition.Top" class="col-12 mb-10 rz-shadow-6">
-        <Tabs>
-            @*make foreach loop mabye*@
-            @for (int i = 0; i < FoodMenuItems.Count / 4; i++)
-            {
-                _intDay = "day ";
-                _intDay += i + 1;
-                <CascadingValue Value="@FoodMenuItems">
-                    <RadzenTabsItem Text="@_intDay">
-                        <MenuTemplate></MenuTemplate>
-                    </RadzenTabsItem>
-                </CascadingValue>
-            }
-        </Tabs>
-    </RadzenTabs>
+	<RadzenTabs Style="background-color: white" TabPosition="TabPosition.Top" class="col-12 mb-10 rz-shadow-6">
+		<Tabs>
+			<RadzenTabsItem Text="@_languageTable[((WeekDayEnum)1).ToString()]">
+				<CascadingValue Value="1">
+					<MenuTemplate></MenuTemplate>
+				</CascadingValue>
+			</RadzenTabsItem>
+			<RadzenTabsItem Text="@_languageTable[((WeekDayEnum)2).ToString()]">
+				<CascadingValue Value="2">
+					<MenuTemplate></MenuTemplate>
+				</CascadingValue>
+			</RadzenTabsItem>
+			<RadzenTabsItem Text="@_languageTable[((WeekDayEnum)3).ToString()]">
+				<CascadingValue Value="3">
+					<MenuTemplate></MenuTemplate>
+				</CascadingValue>
+			</RadzenTabsItem>
+			<RadzenTabsItem Text="@_languageTable[((WeekDayEnum)4).ToString()]">
+				<CascadingValue Value="4">
+					<MenuTemplate></MenuTemplate>
+				</CascadingValue>
+			</RadzenTabsItem>
+			<RadzenTabsItem Text="@_languageTable[((WeekDayEnum)5).ToString()]">
+				<CascadingValue Value="5">
+					<MenuTemplate></MenuTemplate>
+				</CascadingValue>
+			</RadzenTabsItem>
+		</Tabs>
+	</RadzenTabs>
 </div>

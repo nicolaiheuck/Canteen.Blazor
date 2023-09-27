@@ -1,4 +1,6 @@
-﻿<RadzenTemplateForm Style="background-color: white" Data="@menu" Submit="@((Menu args) => { Submit(args); })">
+﻿@using Canteen.Services.DTO;
+
+<RadzenTemplateForm Data="@ThisWeekMenuList" Submit="@((List<FoodMenuItemDTO> args) => { Submit(args); })" Style="background-color: white">
 	<RadzenRow Gap="2rem" Class="rz-p-0 rz-p-lg-4">
 		<RadzenColumn Size="12" SizeMD="6">
 			<RadzenStack>
@@ -6,48 +8,40 @@
 					<RadzenStack Gap="1rem">
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Retten" />
+								<RadzenLabel Text="@_languageTable["Dish"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenTextBox Style="width: 100%;" Name="CardNr" />
+								<RadzenTextBox Style="width: 100%;" Name="CardNr" @bind-Value="MenuItem1.DishName" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Beskrivelse" />
+								<RadzenLabel Text="@_languageTable["Co2"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenTextArea Placeholder="Enter beskrivelse..." class="w-100" />
+								<RadzenDropDown @bind-Value="MenuItem1.Footprint" Data="@carbonFootPrint" Placeholder="@_languageTable["SelectCarbon"]"/>
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Allagier" />
+								<RadzenLabel Text="@_languageTable["Allergies"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								@* make Populate CheckBoxList items from data *@
-								<RadzenCheckBoxList @bind-Value=@values TValue="int" Orientation=Orientation.Vertical class="mb-5">
-									<Items>
-										<RadzenCheckBoxListItem Text="allagie 1" Value="1" />
-										<RadzenCheckBoxListItem Text="allagie 2" Value="2" />
-										<RadzenCheckBoxListItem Text="allagie 3" Value="3" />
-									</Items>
-								</RadzenCheckBoxList>
+								<RadzenDropDown @bind-Value="foodAllergy1" Data="@foodAllergyList" Multiple=true AllowClear=true Placeholder="@_languageTable["SelectAllergies"]"/>
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
-							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="type" />
+							<RadzenColumn Size="12" SizeSM="4" SizeMD="2">
+								<RadzenLabel Text="Kcal" />
 							</RadzenColumn>
-							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenRadioButtonList @bind-Value="@radio" TValue="int" class="mb-5">
-									<Items>
-										<RadzenRadioButtonListItem Text="Meat Based" Value="1" />
-										<RadzenRadioButtonListItem Text="Vegan" Value="2" />
-										<RadzenRadioButtonListItem Text="fisk" Value="3" />
-										<RadzenRadioButtonListItem Text="salat" Value="4" />
-									</Items>
-								</RadzenRadioButtonList>
+							<RadzenColumn Size="12" SizeSM="8" SizeMD="4">
+								<RadzenNumeric Placeholder="300" Style="width: 100%;" Name="Kcal" @bind-Value="MenuItem1.Kcal" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeSM="4" SizeMD="2" Class="rz-text-align-md-end">
+								<RadzenLabel Text="Kj" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeSM="8" SizeMD="4">
+								<RadzenNumeric Placeholder="123" Style="width: 100%;" Name="Kj" @bind-Value="MenuItem1.Kj" />
 							</RadzenColumn>
 						</RadzenRow>
 					</RadzenStack>
@@ -56,48 +50,40 @@
 					<RadzenStack Gap="1rem">
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Retten" />
+								<RadzenLabel Text="@_languageTable["Dish"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenTextBox Style="width: 100%;" Name="CardNr" />
+								<RadzenTextBox Style="width: 100%;" Name="CardNr" @bind-Value="MenuItem2.DishName" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Beskrivelse" />
+								<RadzenLabel Text="@_languageTable["Co2"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenTextArea Placeholder="Enter beskrivelse..." class="w-100" />
+								<RadzenDropDown @bind-Value="MenuItem2.Footprint" Data="@carbonFootPrint" Placeholder="@_languageTable["SelectCarbon"]" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Allagier" />
+								<RadzenLabel Text="@_languageTable["Allergies"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								@* make Populate CheckBoxList items from data *@
-								<RadzenCheckBoxList @bind-Value=@values TValue="int" Orientation=Orientation.Vertical class="mb-5">
-									<Items>
-										<RadzenCheckBoxListItem Text="allagie 1" Value="1" />
-										<RadzenCheckBoxListItem Text="allagie 2" Value="2" />
-										<RadzenCheckBoxListItem Text="allagie 3" Value="3" />
-									</Items>
-								</RadzenCheckBoxList>
+								<RadzenDropDown @bind-Value="foodAllergy2" Data="@foodAllergyList" Multiple=true AllowClear=true Placeholder="@_languageTable["SelectAllergies"]" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
-							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="type" />
+							<RadzenColumn Size="12" SizeSM="4" SizeMD="2">
+								<RadzenLabel Text="Kcal" />
 							</RadzenColumn>
-							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenRadioButtonList @bind-Value="@radio" TValue="int" class="mb-5">
-									<Items>
-										<RadzenRadioButtonListItem Text="MeatBased" Value="1" />
-										<RadzenRadioButtonListItem Text="Vegan" Value="2" />
-										<RadzenRadioButtonListItem Text="fisk" Value="3" />
-										<RadzenRadioButtonListItem Text="salat" Value="4" />
-									</Items>
-								</RadzenRadioButtonList>
+							<RadzenColumn Size="12" SizeSM="8" SizeMD="4">
+								<RadzenNumeric Placeholder="300" Style="width: 100%;" Name="Kcal" @bind-Value="MenuItem2.Kcal" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeSM="4" SizeMD="2" Class="rz-text-align-md-end">
+								<RadzenLabel Text="Kj" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeSM="8" SizeMD="4">
+								<RadzenNumeric Placeholder="123" Style="width: 100%;" Name="Kj" @bind-Value="MenuItem2.Kj" />
 							</RadzenColumn>
 						</RadzenRow>
 					</RadzenStack>
@@ -110,48 +96,40 @@
 					<RadzenStack Gap="1rem">
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Retten" />
+								<RadzenLabel Text="@_languageTable["Dish"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenTextBox Style="width: 100%;" Name="CardNr" />
+								<RadzenTextBox Style="width: 100%;" Name="CardNr" @bind-Value="MenuItem3.DishName" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Beskrivelse" />
+								<RadzenLabel Text="@_languageTable["Co2"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenTextArea Placeholder="Enter beskrivelse..." class="w-100" />
+								<RadzenDropDown @bind-Value="MenuItem3.Footprint" Data="@carbonFootPrint" Placeholder="@_languageTable["SelectCarbon"]" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Allagier" />
+								<RadzenLabel Text="@_languageTable["Allergies"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								@* make Populate CheckBoxList items from data *@
-								<RadzenCheckBoxList @bind-Value=@values TValue="int" Orientation=Orientation.Vertical class="mb-5">
-									<Items>
-										<RadzenCheckBoxListItem Text="allagie 1" Value="1" />
-										<RadzenCheckBoxListItem Text="allagie 2" Value="2" />
-										<RadzenCheckBoxListItem Text="allagie 3" Value="3" />
-									</Items>
-								</RadzenCheckBoxList>
+								<RadzenDropDown @bind-Value="foodAllergy3" Data="@foodAllergyList" Multiple=true AllowClear=true Placeholder="@_languageTable["SelectAllergies"]" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
-							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="type" />
+							<RadzenColumn Size="12" SizeSM="4" SizeMD="2">
+								<RadzenLabel Text="Kcal" />
 							</RadzenColumn>
-							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenRadioButtonList @bind-Value="@radio" TValue="int" class="mb-5">
-									<Items>
-										<RadzenRadioButtonListItem Text="MeatBased" Value="1" />
-										<RadzenRadioButtonListItem Text="Vegan" Value="2" />
-										<RadzenRadioButtonListItem Text="fisk" Value="3" />
-										<RadzenRadioButtonListItem Text="salat" Value="4" />
-									</Items>
-								</RadzenRadioButtonList>
+							<RadzenColumn Size="12" SizeSM="8" SizeMD="4">
+								<RadzenNumeric Placeholder="300" Style="width: 100%;" Name="Kcal" @bind-Value="MenuItem3.Kcal" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeSM="4" SizeMD="2" Class="rz-text-align-md-end">
+								<RadzenLabel Text="Kj" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeSM="8" SizeMD="4">
+								<RadzenNumeric Placeholder="123" Style="width: 100%;" Name="Kj" @bind-Value="MenuItem3.Kj" />
 							</RadzenColumn>
 						</RadzenRow>
 					</RadzenStack>
@@ -160,48 +138,40 @@
 					<RadzenStack Gap="1rem">
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Retten" />
+								<RadzenLabel Text="@_languageTable["Dish"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenTextBox Style="width: 100%;" Name="CardNr" />
+								<RadzenTextBox Style="width: 100%;" Name="CardNr" @bind-Value="MenuItem4.DishName" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Beskrivelse" />
+								<RadzenLabel Text="@_languageTable["Co2"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenTextArea Placeholder="Enter beskrivelse..." class="w-100" />
+								<RadzenDropDown @bind-Value="MenuItem4.Footprint" Data="@carbonFootPrint" Placeholder="@_languageTable["SelectCarbon"]" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
 							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="Allagier" />
+								<RadzenLabel Text="@_languageTable["Allergies"]" />
 							</RadzenColumn>
 							<RadzenColumn Size="12" SizeMD="8">
-								@* make Populate CheckBoxList items from data *@
-								<RadzenCheckBoxList @bind-Value=@values TValue="int" Orientation=Orientation.Vertical class="mb-5">
-									<Items>
-										<RadzenCheckBoxListItem Text="allagie 1" Value="1" />
-										<RadzenCheckBoxListItem Text="allagie 2" Value="2" />
-										<RadzenCheckBoxListItem Text="allagie 3" Value="3" />
-									</Items>
-								</RadzenCheckBoxList>
+								<RadzenDropDown @bind-Value="foodAllergy4" Data="@foodAllergyList" Multiple=true AllowClear=true Placeholder="@_languageTable["SelectAllergies"]" />
 							</RadzenColumn>
 						</RadzenRow>
 						<RadzenRow AlignItems="AlignItems.Center">
-							<RadzenColumn Size="12" SizeMD="4">
-								<RadzenLabel Text="type" />
+							<RadzenColumn Size="12" SizeSM="4" SizeMD="2">
+								<RadzenLabel Text="Kcal" />
 							</RadzenColumn>
-							<RadzenColumn Size="12" SizeMD="8">
-								<RadzenRadioButtonList @bind-Value="@radio" TValue="int" class="mb-5">
-									<Items>
-										<RadzenRadioButtonListItem Text="MeatBased" Value="1" />
-										<RadzenRadioButtonListItem Text="Vegan" Value="2" />
-										<RadzenRadioButtonListItem Text="fisk" Value="3" />
-										<RadzenRadioButtonListItem Text="salat" Value="4" />
-									</Items>
-								</RadzenRadioButtonList>
+							<RadzenColumn Size="12" SizeSM="8" SizeMD="4">
+								<RadzenNumeric Placeholder="300" Style="width: 100%;" Name="Kcal" @bind-Value="MenuItem4.Kcal" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeSM="4" SizeMD="2" Class="rz-text-align-md-end">
+								<RadzenLabel Text="Kj" />
+							</RadzenColumn>
+							<RadzenColumn Size="12" SizeSM="8" SizeMD="4">
+								<RadzenNumeric Placeholder="123" Style="width: 100%;" Name="Kj" @bind-Value="MenuItem4.Kj" />
 							</RadzenColumn>
 						</RadzenRow>
 					</RadzenStack>
@@ -214,4 +184,3 @@
 		<RadzenButton ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Large" Icon="cancel" Text="Cancel" Click="@Cancel" />
 	</RadzenStack>
 </RadzenTemplateForm>
-
