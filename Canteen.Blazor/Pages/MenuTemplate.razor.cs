@@ -62,7 +62,7 @@ namespace Canteen.Blazor.Pages
 		private async Task MenuItem1Async()
 		{
 			List<Food_Allergy> allergies = new();
-			if (foodAllergy1 != null)
+			if (foodAllergy1 is not null)
 			{
 				foreach (var item in foodAllergy1)
 				{
@@ -77,7 +77,7 @@ namespace Canteen.Blazor.Pages
 		private async Task MenuItem2Async()
 		{
 			List<Food_Allergy> allergies = new();
-			if (foodAllergy2 != null)
+			if (foodAllergy2 is not null)
 			{
 				foreach (var item in foodAllergy2)
 				{
@@ -92,7 +92,7 @@ namespace Canteen.Blazor.Pages
 		private async Task MenuItem3Async()
 		{
 			List<Food_Allergy> allergies = new();
-			if (foodAllergy3 != null)
+			if (foodAllergy3 is not null)
 			{
 				foreach (var item in foodAllergy3)
 				{
@@ -107,7 +107,7 @@ namespace Canteen.Blazor.Pages
 		private async Task MenuItem4Async()
 		{
 			List<Food_Allergy> allergies = new();
-			if (foodAllergy4 != null)
+			if (foodAllergy4 is not null)
 			{
 				foreach (var item in foodAllergy4)
 				{
