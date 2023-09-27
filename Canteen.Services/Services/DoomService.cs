@@ -2,6 +2,7 @@ using Canteen.Repositories.Entities;
 using Canteen.Repositories.Interfaces;
 using Canteen.Services.DTO;
 using Canteen.Services.Interfaces;
+using System.Globalization;
 
 namespace Canteen.Services.Services;
 
@@ -183,4 +184,25 @@ public class DoomService : IDoomService
 
         return menuList;
     }
+
+	public async Task<List<string>> ListAllFoodAllergysAsync()
+	{
+        List<string> fAList = new();
+        fAList.Add("Vegan");
+        fAList.Add("Gluten");
+        fAList.Add("Vegetarian");
+        fAList.Add("Crustacean");
+        fAList.Add("Mollusca");
+        fAList.Add("Egg");
+        fAList.Add("Fish");
+        fAList.Add("Peanut");
+        fAList.Add("Soy");
+        fAList.Add("Milk");
+        fAList.Add("Nuts");
+        fAList.Add("Celery");
+        fAList.Add("Mustard");
+        fAList.Add("Sesame");
+        fAList.Add("Sulphite");
+        return fAList;
+	}
 }

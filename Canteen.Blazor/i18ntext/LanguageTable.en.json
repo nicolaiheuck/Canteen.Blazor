@@ -10,7 +10,7 @@
 
 	//Global - Toast Messages
 	"SuccessfullyUpdated": "Successfully updated",
-	"FailedUpdate ": "Failed to update",
+	"FailedUpdate": "Failed to update",
 	"SuccessfullyDeleted": "Successfully deleted",
 	"FailedDelete": "Failed to delete",
 	"SuccessfullyCreated": "Successfully created",
@@ -23,7 +23,7 @@
 	"HelloWorld": "Hello!",
 
 
-	//Canteen
+	//CanteenInfo
 	"CanteenWelcome": "Welcome to the EUC-Syd cafeteria",
 	"Monday": "Monday",
 	"Tuesday": "Tuesday",
@@ -35,5 +35,11 @@
 	"Høj": "High",
 	"Co2": "Carbon footprint",
 	"Dish": "Dish",
-	"Weekday": "Weekday"
+	"Weekday": "Weekday",
+	"Allergies": "Allergies",
+
+	//MenuTemplate
+	"SelectCarbon": "Select carbon footprint level",
+	"SelectAllergies": "Select allergies"
+
 }

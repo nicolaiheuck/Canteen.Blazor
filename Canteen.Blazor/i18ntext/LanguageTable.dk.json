@@ -10,7 +10,7 @@
 
 	//Global - Toast Messages
 	"SuccessfullyUpdated": "Opdatering gennemført",
-	"FailedUpdate ": "Kunne ikke opdatere",
+	"FailedUpdate": "Kunne ikke opdatere",
 	"SuccessfullyDeleted": "Succesfuldt slettet",
 	"FailedDelete": "Kunne ikke slette",
 	"SuccessfullyCreated": "Succesfuldt oprettet",
@@ -21,8 +21,8 @@
 
 	//Index
 	"HelloWorld": "Hej!",
-	
-	//Canteen
+
+	//Canteeninfo
 	"CanteenWelcome": "Velkommen til EUC-Syds kantine",
 	"Monday": "Mandag",
 	"Tuesday": "Tirsdag",
@@ -34,5 +34,10 @@
 	"Høj": "Høj",
 	"Co2": "Co2 aftryk",
 	"Dish": "Ret",
-	"Weekday": "Ugedag"
+	"Weekday": "Ugedag",
+	"Allergies": "Allergier",
+
+	//MenuTemplate
+	"SelectCarbon": "Vælg niveau for CO2-fodaftryk",
+	"SelectAllergies": "Vælg allergier"
 }

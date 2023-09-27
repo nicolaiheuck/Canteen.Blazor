@@ -31,7 +31,7 @@
 								<RadzenColumn SizeSM="8">
 									@if (menuItem.FoodAllergiesList.Count(f => f.Present) > 0)
 									{
-										<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Allagiere</RadzenText>
+										<RadzenText TextStyle="TextStyle.Overline" class="rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">@_languageTable["Allergies"]</RadzenText>
 										@foreach (var allergy in menuItem.FoodAllergiesList.Where(allergy => allergy.Present))
 										{
 											<RadzenText TextStyle="TextStyle.Body1" class="rz-color-on-primary-light"><b>@allergy.Allergy</b></RadzenText>

@@ -18,7 +18,6 @@ public partial class CanteenInfoScreen
         _languageTable = await I18nText.GetTextTableAsync<I18nText.LanguageTable>(this);;
         _service = Service;
         thisWeekMenuList = await _service.ListThisWeeksMenuAsync();
-        // thisWeekMenuList = debug.AsEnumerable();
         nextWeekMenuList = await _service.ListNextWeeksMenuAsync();
     }
 }
