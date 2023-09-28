@@ -27,6 +27,7 @@ public class DoomRepository : IDoomRepository
             .Where(f => f.WeekDay > 0 && f.WeekDay < 6)
             .Include(f => f.FoodFootprint)
             .AsNoTracking()
+            .OrderBy(f => f.WeekDay)
             .ToListAsync();
 
         return weekMenu;
@@ -38,6 +39,7 @@ public class DoomRepository : IDoomRepository
             .Where(f => f.WeekDay > 5 && f.WeekDay < 10)
             .Include(f => f.FoodFootprint)
             .AsNoTracking()
+            .OrderBy(f => f.WeekDay)
             .ToListAsync();
 
         return weekMenu;

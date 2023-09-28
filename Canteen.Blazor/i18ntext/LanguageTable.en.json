@@ -5,16 +5,41 @@
 	"Name": "Name",
 	"Description": "Description",
 	"Equality": "Equality",
+	"Yes": "Yes",
+	"No": "No",
 
 	//Global - Toast Messages
 	"SuccessfullyUpdated": "Successfully updated",
-	"FailedUpdate ": "Failed to update",
+	"FailedUpdate": "Failed to update",
 	"SuccessfullyDeleted": "Successfully deleted",
 	"FailedDelete": "Failed to delete",
 	"SuccessfullyCreated": "Successfully created",
 	"FailedCreate": "Failed to create",
 
+	//Global - Modal
+	"DeleteConfirmation": "Are you sure you want to delete",
+
 	//Index
-	"HelloWorld": "Hello!"
+	"HelloWorld": "Hello!",
+
+
+	//CanteenInfo
+	"CanteenWelcome": "Welcome to the EUC-Syd cafeteria",
+	"Monday": "Monday",
+	"Tuesday": "Tuesday",
+	"Wednesday": "Wednesday",
+	"Thursday": "Thursday",
+	"Friday": "Friday",
+	"Lav": "Low",
+	"Mellem": "Medium",
+	"Høj": "High",
+	"Co2": "Carbon footprint",
+	"Dish": "Dish",
+	"Weekday": "Weekday",
+	"Allergies": "Allergies",
+
+	//MenuTemplate
+	"SelectCarbon": "Select carbon footprint level",
+	"SelectAllergies": "Select allergies"
 
 }

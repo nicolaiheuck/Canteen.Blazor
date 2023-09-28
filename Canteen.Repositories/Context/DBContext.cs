@@ -13,7 +13,7 @@ public class DBContext : DbContext
     {
         // TODO SQL CONNECTION STRING!
         var cnString = "server=10.131.15.57;user=program;password=SuperSecretPassword1337;database=DOOM";
-        // var cnString = "server=10.131.15.57;user=program;password=SuperSecretPassword1337;database=DOOM";
+        // var cnString = "server=10.131.15.57;user=program;password=SuperSecretPassword1337;database=doom";
         var serverVersion = new MySqlServerVersion(new Version(10,9,0));
         optionsBuilder.UseMySql(cnString, serverVersion)
             .LogTo(Console.WriteLine, LogLevel.Information);
@@ -25,5 +25,8 @@ public class DBContext : DbContext
             .HasOne(f => f.FoodFootprint)
             .WithMany(ff => ff.FoodMenu)
             .HasForeignKey(k => k.FootprintID);
+
+        modelBuilder.Entity<Food_Footprint>()
+            .HasKey(f => f.FootprintID);
     }   
 }

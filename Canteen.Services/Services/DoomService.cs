@@ -2,6 +2,7 @@ using Canteen.Repositories.Entities;
 using Canteen.Repositories.Interfaces;
 using Canteen.Services.DTO;
 using Canteen.Services.Interfaces;
+using System.Globalization;
 
 namespace Canteen.Services.Services;
 
@@ -16,38 +17,105 @@ public class DoomService : IDoomService
 
     private async Task<List<FoodMenuItemDTO>> GetWeekMenuAsync(bool nextWeek = false)
     {
-        var foodList = nextWeek switch
-        {
-            true => await _repository.GetThisWeekMenuAsync(),
-            false => await _repository.GetNextWeeksMenuAsync()
-        };
+        List<Food_Menu> foodList = new();
+        
+        
+        if (!nextWeek) foodList = await _repository.GetThisWeekMenuAsync();
+        if (nextWeek) foodList = await _repository.GetNextWeeksMenuAsync();
         
         List<FoodMenuItemDTO> result = new();
         
         foreach (var foodItem in foodList)
         {
+            var fAList = new List<Food_Allergy>();
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Vegan",
+                Present = foodItem.Vegan
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Gluten",
+                Present = foodItem.Allergy_Gluten
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Vegetarian",
+                Present = foodItem.Vegetarian
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Crustacean",
+                Present = foodItem.Allergy_Crustacean
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Mollusca",
+                Present = foodItem.Allergy_Mollusca
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Egg",
+                Present = foodItem.Allergy_Egg
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Fish",
+                Present = foodItem.Allergy_Fish
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Peanut",
+                Present = foodItem.Allergy_Peanut
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Soy",
+                Present = foodItem.Allergy_Soy
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Milk",
+                Present = foodItem.Allergy_Milk
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Nuts",
+                Present = foodItem.Allergy_Nuts
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Lupin",
+                Present = foodItem.Allergy_Lupin
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Celery",
+                Present = foodItem.Allergy_Celery
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Mustard",
+                Present = foodItem.Allergy_Mustard
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Sesame",
+                Present = foodItem.Allergy_Sesame
+            });
+            fAList.Add(new Food_Allergy
+            {
+                Allergy = "Sulphite",
+                Present = foodItem.Allergy_Sulphite
+            });
+            
             result.Add(new FoodMenuItemDTO
             {
                 DishName = foodItem.DishName,
                 Kcal = foodItem.Kcal,
                 Kj = foodItem.Kj,
                 Footprint = foodItem.FoodFootprint.FootprintText,
-                Vegetarian = foodItem.Vegetarian,
-                Vegan = foodItem.Vegan,
-                Allergy_Gluten = foodItem.Allergy_Gluten,
-                Allergy_Crustacean = foodItem.Allergy_Crustacean,
-                Allergy_Mollusca = foodItem.Allergy_Mollusca,
-                Allergy_Egg = foodItem.Allergy_Egg,
-                Allergy_Fish = foodItem.Allergy_Fish,
-                Allergy_Peanut = foodItem.Allergy_Peanut,
-                Allergy_Soy = foodItem.Allergy_Soy,
-                Allergy_Milk = foodItem.Allergy_Milk,
-                Allergy_Nuts = foodItem.Allergy_Nuts,
-                Allergy_Lupin = foodItem.Allergy_Lupin,
-                Allergy_Celery = foodItem.Allergy_Celery,
-                Allergy_Mustard = foodItem.Allergy_Mustard,
-                Allergy_Sesame = foodItem.Allergy_Sesame,
-                Allergy_Sulphite = foodItem.Allergy_Sulphite,
+                FoodAllergiesList = fAList,
                 Weekday = foodItem.WeekDay,
                 FootprintId = foodItem.FootprintID
             });
@@ -93,22 +161,22 @@ public class DoomService : IDoomService
                 Kcal = FoodItem.Kcal,
                 Kj = FoodItem.Kj,
                 FootprintID = FoodItem.FootprintId,
-                Vegetarian = FoodItem.Vegetarian,
-                Vegan = FoodItem.Vegan,
-                Allergy_Gluten = FoodItem.Allergy_Gluten,
-                Allergy_Crustacean = FoodItem.Allergy_Crustacean,
-                Allergy_Mollusca = FoodItem.Allergy_Mollusca,
-                Allergy_Egg = FoodItem.Allergy_Egg,
-                Allergy_Fish = FoodItem.Allergy_Fish,
-                Allergy_Peanut = FoodItem.Allergy_Peanut,
-                Allergy_Soy = FoodItem.Allergy_Soy,
-                Allergy_Milk = FoodItem.Allergy_Milk,
-                Allergy_Nuts = FoodItem.Allergy_Nuts,
-                Allergy_Lupin = FoodItem.Allergy_Lupin,
-                Allergy_Celery = FoodItem.Allergy_Celery,
-                Allergy_Mustard = FoodItem.Allergy_Mustard,
-                Allergy_Sesame = FoodItem.Allergy_Sesame,
-                Allergy_Sulphite = FoodItem.Allergy_Sulphite,
+                Vegetarian = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Vegetarian").Present,
+                Vegan = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Vegan").Present,
+                Allergy_Gluten = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Gluten").Present,
+                Allergy_Crustacean = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Crustacean").Present,
+                Allergy_Mollusca = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Mollusca").Present,
+                Allergy_Egg = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Egg").Present,
+                Allergy_Fish = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Fish").Present,
+                Allergy_Peanut = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Peanut").Present,
+                Allergy_Soy = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Soy").Present,
+                Allergy_Milk = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Milk").Present,
+                Allergy_Nuts = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Nuts").Present,
+                Allergy_Lupin = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Lupin").Present,
+                Allergy_Celery = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Celery").Present,
+                Allergy_Mustard = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Mustard").Present,
+                Allergy_Sesame = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Sesame").Present,
+                Allergy_Sulphite = FoodItem.FoodAllergiesList.First(f => f.Allergy == "Allergy_Sulphite").Present,
                 WeekDay = FoodItem.Weekday
             };
             menuList.Add(foodItem);
@@ -116,4 +184,25 @@ public class DoomService : IDoomService
 
         return menuList;
     }
+
+	public async Task<List<string>> ListAllFoodAllergysAsync()
+	{
+        List<string> fAList = new();
+        fAList.Add("Vegan");
+        fAList.Add("Gluten");
+        fAList.Add("Vegetarian");
+        fAList.Add("Crustacean");
+        fAList.Add("Mollusca");
+        fAList.Add("Egg");
+        fAList.Add("Fish");
+        fAList.Add("Peanut");
+        fAList.Add("Soy");
+        fAList.Add("Milk");
+        fAList.Add("Nuts");
+        fAList.Add("Celery");
+        fAList.Add("Mustard");
+        fAList.Add("Sesame");
+        fAList.Add("Sulphite");
+        return fAList;
+	}
 }

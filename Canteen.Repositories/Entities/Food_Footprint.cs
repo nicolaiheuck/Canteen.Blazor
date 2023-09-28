@@ -2,7 +2,7 @@ namespace Canteen.Repositories.Entities;
 
 public class Food_Footprint
 {
-    public int FoodprintID { get; set; }
+    public int FootprintID { get; set; }
     public string FootprintText { get; set; }
     
     // Navigation property

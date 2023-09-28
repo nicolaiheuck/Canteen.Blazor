@@ -5,16 +5,39 @@
 	"Name": "Navn",
 	"Description": "Beskrivelse",
 	"Equality": "Lighed",
+	"Yes": "Ja",
+	"No": "Nej",
 
 	//Global - Toast Messages
 	"SuccessfullyUpdated": "Opdatering gennemført",
-	"FailedUpdate ": "Kunne ikke opdatere",
+	"FailedUpdate": "Kunne ikke opdatere",
 	"SuccessfullyDeleted": "Succesfuldt slettet",
 	"FailedDelete": "Kunne ikke slette",
 	"SuccessfullyCreated": "Succesfuldt oprettet",
 	"FailedCreate": "Kunne ikke oprette",
 
-	//Index
-	"HelloWorld": "Hej!"
+	//Global - Modal
+	"DeleteConfirmation": "Er du sikker på du vil slette",
 
+	//Index
+	"HelloWorld": "Hej!",
+
+	//Canteeninfo
+	"CanteenWelcome": "Velkommen til EUC-Syds kantine",
+	"Monday": "Mandag",
+	"Tuesday": "Tirsdag",
+	"Wednesday": "Onsdag",
+	"Thursday": "Torsdag",
+	"Friday": "Fredag",
+	"Lav": "Lav",
+	"Mellem": "Mellem",
+	"Høj": "Høj",
+	"Co2": "Co2 aftryk",
+	"Dish": "Ret",
+	"Weekday": "Ugedag",
+	"Allergies": "Allergier",
+
+	//MenuTemplate
+	"SelectCarbon": "Vælg niveau for CO2-fodaftryk",
+	"SelectAllergies": "Vælg allergier"
 }
