@@ -51,11 +51,11 @@ namespace Canteen.Blazor.Pages
 			var result = await _service.UpdateMenu(ThisWeekMenuList, _weekDay, false);
 			if (result)
 			{
-				ToastService.ShowSuccess($"{_languageTable["SuccessfullyUpdated"]}");
+				ToastService.ShowSuccess(_languageTable["SuccessfullyUpdated"]);
 			}
 			else
 			{
-				ToastService.ShowSuccess($"{_languageTable["FailedUpdate"]}");
+				ToastService.ShowSuccess(_languageTable["FailedUpdate"]);
 			}
 		}
 
