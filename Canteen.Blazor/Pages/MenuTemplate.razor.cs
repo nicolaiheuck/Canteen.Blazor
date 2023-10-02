@@ -34,7 +34,7 @@ namespace Canteen.Blazor.Pages
 		protected override async Task OnInitializedAsync()
 		{
 			carbonFootPrint.Add("Low");
-			carbonFootPrint.Add("Medieum");
+			carbonFootPrint.Add("Medium");
 			carbonFootPrint.Add("High");
 			_languageTable = await I18nText.GetTextTableAsync<I18nText.LanguageTable>(this); ;
 			_service = Service;
