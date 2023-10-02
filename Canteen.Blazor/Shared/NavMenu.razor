@@ -11,14 +11,16 @@
 </div>
 <RadzenPanelMenu Multiple="false">
 
-	<RadzenPanelMenuItem Text="Home" Path="/" Icon="home"></RadzenPanelMenuItem>
-	<RadzenPanelMenuItem Text="Info" Path="/CanteenInfo" Icon="Home"></RadzenPanelMenuItem>
+	<AuthorizeView Roles="Admin, Kantinemedarbjeder">
+		<RadzenPanelMenuItem Text="Home" Path="/" Icon="home"></RadzenPanelMenuItem>
+	</AuthorizeView>
+	<RadzenPanelMenuItem Text="Menu Info" Path="/CanteenInfo" Icon="restaurant_menu"></RadzenPanelMenuItem>
 
-	@*     <AuthorizeView Roles=""> *@
-	@*         <RadzenPanelMenuItem Text="" Icon="">
-	<RadzenPanelMenuItem Text="" Icon="" Path=""></RadzenPanelMenuItem>
-	</RadzenPanelMenuItem> *@
-	@*     </AuthorizeView> *@
+	@*<AuthorizeView Roles=""> 
+		<RadzenPanelMenuItem Text="" Icon="">
+			<RadzenPanelMenuItem Text="" Icon="" Path=""></RadzenPanelMenuItem>
+		</RadzenPanelMenuItem>
+	</AuthorizeView> *@
 
 </RadzenPanelMenu>
 
