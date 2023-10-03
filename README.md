@@ -126,15 +126,15 @@ Project Link: [https://github.com/nicolaiheuck/Canteen.Blazor/](https://github.c
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [build-shield]: https://img.shields.io/badge/Build-passed-brightgreen.svg
 [test-shield]: https://img.shields.io/badge/Tests-passed-brightgreen.svg
-[contributors-shield]: https://img.shields.io/github/contributors/nicolaiheuck/Canteen.Blazor/.svg?style=badge
-[contributors-url]: https://github.com/nicolaiheuck/Canteen.Blazor//graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/nicolaiheuck/Canteen.Blazor/.svg?style=badge
-[forks-url]: https://github.com/nicolaiheuck/Canteen.Blazor//network/members
-[issues-shield]: https://img.shields.io/github/issues/nicolaiheuck/Canteen.Blazor/.svg?style=badge
-[closed-shield]: https://img.shields.io/github/issues-closed/nicolaiheuck/Canteen.Blazor/?label=%20
-[issues-url]: https://github.com/nicolaiheuck/Canteen.Blazor//issues
-[license-shield]: https://img.shields.io/github/license/nicolaiheuck/Canteen.Blazor/.svg?style=badge
-[license-url]: https://github.com/nicolaiheuck/Canteen.Blazor//blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/nicolaiheuck/Canteen.Blazor.svg?style=badge
+[contributors-url]: https://github.com/nicolaiheuck/Canteen.Blazor/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/nicolaiheuck/Canteen.Blazor.svg?style=badge
+[forks-url]: https://github.com/nicolaiheuck/Canteen.Blazor/network/members
+[issues-shield]: https://img.shields.io/github/issues/nicolaiheuck/Canteen.Blazor.svg?style=badge
+[closed-shield]: https://img.shields.io/github/issues-closed/nicolaiheuck/Canteen.Blazor?label=%20
+[issues-url]: https://github.com/nicolaiheuck/Canteen.Blazor/issues
+[license-shield]: https://img.shields.io/github/license/nicolaiheuck/Canteen.Blazor.svg?style=badge
+[license-url]: https://github.com/nicolaiheuck/Canteen.Blazor/blob/master/LICENSE
 [twitter-shield]: https://img.shields.io/twitter/follow/andreasen_jan?style=social
 [twitter-url]: https://twitter.com/andreasen_jan
 [twitter-shield-ptr]: https://img.shields.io/twitter/follow/peter_hym?style=social
