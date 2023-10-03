@@ -26,5 +26,10 @@ Table Food_Footprint {
   FootprintID integer [primary key]
   FootprintText nvarchar(15)
 }
+
+Table Food_Allergies {
+  AllergyID integer [primary key]
+  AllergyName nvarchar(20)
+}
 Ref: Food_Menu.FootprintID > Food_Footprint.FootprintID
 
