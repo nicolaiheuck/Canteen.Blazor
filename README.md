@@ -18,70 +18,90 @@
 - [Roadmap](#roadmap)
 - [Summary and rundown](#summary-and-rundown)
 - [Getting started](#getting-started)
-- [API endpoints](#api-endpoints)
 - [Libraries](#libraries)
 - [Database Diagram](#database-diagram)
 - [Flowcharts](#flowcharts)
-  - [Alarm](#alarm-2)
 - [License](#license)
 - [Contact](#contact)
 </details>
 
 # Case
-Case bla bla bla
-* Punkt 1
-* Punkt 2
-* Punkt 3
+Inspireret af udenlandske eksempler ønsker IT-Center Syd at udvikle og implementere en række nye IT-services:
+> Info ved retterne i skolernes kantinen buffet: Implementer displays ved buffeten, der viser information om de tilberedte retter, 
+> herunder ingredienser, næringsværdi og CO2-aftryk. Dette kan hjælpe elever og personale med at træffe bevidste valg og 
+> forstå fødevarens påvirkning på miljøet. Det er meget vigtigt at det bliver nemt at lave den daglige opdatering og at 
+> informationerne kun skal skrives ind et enkelt sted. Tænk også på de praktiske udfordringer med vådt miljø og hygiejne.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Requirements
-- [X] Done
-- [X] Done
-- [ ] Todo
+- [X] Vise ugens menu
+- [X] Vise CO2-aftryk på retterne
+- [x] Vise næringsværdig (kcal/kj) på retter
+- [x] Vise eventuelle allergener
+- [X] Holde opdatering af menu enkelt og centralt
+- [x] Tænke hygiejne ind i projektet 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Architecture diagram
 ![architecture diagram](/DOCS/Canteen-Architecture-Diagram.drawio.png)
 
 # Roadmap
-- [X] Done
-  - [ ] Sub thingy not done
-- [X] Done
-- [ ] Not done
-- [ ] Not done
+- [X] Vise ugens menu
+  - [x] Vise CO2-aftryk på retter
+  - [x] Vise næringsværdi på retter (pr. 100 gram)
+  - [x] Vise eventuelle allergener
+  - [x] Vise om retten er vegetarisk eller vegansk
+- [x] Opdatere menuen centralt
+  - [x] Holde opdateringen enkel
+- [ ] Holde systemet hygiejnisk 
+  * Dette er ikke med i demo, men der er påtænkt en løsning hvori dette bliver taget højde for i rapporten.
 
 
 #  Summary and rundown
-Summary with a sup message<sup>like this</sup> - neat right?
-> This is a quote in the summary
+DOOM er lavet som et proof-of-concept hvori at skolernes kantine kan få et enkelt interface til at vise en ugemenu.
+
+Systemet er lavet som et "standalone" system, det kræver derfor ikke nogen ekstern API eller lign., men er styret via 
+sin egen centrale database. Infoskærmen vil vise ugens menu, og automatisk opdatere når personaler lavet ændringer i menuen.
+
+Det er tiltænkt at hele interfacet skal være så simpelt og enkelt som muligt, og derved lette arbejdsgangen for personalet.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 # Getting started
-Quick guide with a `code block` 
-
-We also have a code block block thing
+For at komme igang med programmet, kræver det fire steps.
+1. Opsæt Azure CLI
+2. Databaseopsætning
+   1. Installer database jf. SQL script der findes under `/SETUP`
+   2. Opret bruger og giv de korrekte privileges
+3. Frontend opsætning
+   1. Inden opstart skal connection string til databasen eventuelt rettes. Den findes under `/Canteen.Repositories/Context/DBContext.cs`
 ```csharp
-temperature2 = newDHT.readTemperature();
-humidity2 = newDHT.readHumidity();
+  var cnString = "server=10.131.15.57;user=program;password=SuperSecretPassword1337;database=DOOM";
 ```
-
-Make sure to read the setup!
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-# API endpoints
-| Topics                               | Params    | Method  |
-| :----------------------------------- | :-------- | :------ |
-| ENDPOINT1                            | none      | POST    |
-| ENDPOINT2                            | studentId | GET     |
-
 # Libraries
-| Name               | Version | 
-| ------------------ | ------- | 
-| NuGet              | 2.5.7   | 
-| NuGet              | 1.4.4   | 
+## Canteen.Blazor
+| Name                                              | Version |
+| :------------------------------------------------ | :------ |
+| Azure.Extensions.AspNetCore.Configuration.Secrets | 1.0.0   |
+| Azure.Identity                                    | 1.6.0   |
+| Blazored.Modal                                    | 7.1.0   |
+| Blazored.Toast                                    | 4.1.0   |
+| Microsoft.AspNetCore.Authentication.OpenIdConnect | 7.0.11  |
+| Microsoft.Identity.Web                            | 2.13.4  |
+| Microsoft.Identity.Web.MicrosoftGraph             | 2.13.4  |
+| Microsoft.Identity.Web.UI                         | 2.13.4  |
+| Radzen.Blazor                                     | 4.15.14 |
+| Seq.Extensions.Logging                            | 6.1.0   |
+| Toolbelt.Blazor.HotKeys2                          | 3.0.0   |
+| Toolbelt.Blazor.I18nText                          | 12.0.2  |
+
+## Canteen.Repositories
+| Name                             | Version |
+| :------------------------------- | :------ |
+| Microsoft.EntityFrameworkCore    | 7.0.11  |
+| Pomelo.EntityFrameworkCore.MySql | 7.0.0   |
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -91,17 +111,13 @@ Make sure to read the setup!
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Flowcharts
-
-## Alarm
 ![alarm flowchart](/Docs/Alarm_Flowchart.png)
 `/Docs/Alarm_Flowchart.png`
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 # License
-* Hardware: CC-BY-LA (Creative Commons)
-* API: GPLv3
-* Frontend: GPLv3
+* Frontend: MIT
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Contact
