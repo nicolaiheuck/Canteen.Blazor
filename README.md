@@ -111,8 +111,7 @@ For at komme igang med programmet, kræver det fire steps.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 # Flowcharts
-![alarm flowchart](/Docs/Alarm_Flowchart.png)
-`/Docs/Alarm_Flowchart.png`
+![alarm flowchart](/DOCS/DOOM-Flowchart.drawio.png)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
